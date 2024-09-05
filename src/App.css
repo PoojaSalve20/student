@@ -2,7 +2,6 @@
 .grid-view {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-   grid-template-columns: repeat(5, 1fr); /* Force exactly 5 columns */
   gap: 20px;
   padding: 20px;
   padding-left: 10px;
@@ -166,7 +165,39 @@
   text-decoration: underline;
 }
 
-
+.container .grid-view {
+  /* Media query here */
+   @media (min-width: 1200px) {
+    .grid-view {
+      grid-template-columns: repeat(5, 1fr); /* 5 columns on large screens */
+    }
+  }
+  
+  @media (max-width: 1199px) and (min-width: 992px) {
+    .grid-view {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+    }
+  }
+  
+  @media (max-width: 991px) and (min-width: 768px) {
+    .grid-view {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns on tablets */
+    }
+  }
+  
+  @media (max-width: 767px) and (min-width: 576px) {
+    .grid-view {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .grid-view {
+      grid-template-columns: 1fr; /* 1 column on mobile devices */
+    }
+  }
+  
+}
 
 
 /* App.css */
